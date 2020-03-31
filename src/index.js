@@ -5,6 +5,7 @@ import {
   HomeScreen,
   LoginScreen,
   RegisterScreen,
+  MyProfileScreen,
   ForgotPasswordScreen,
   AuthLoadingScreen,
   Dashboard
@@ -15,6 +16,7 @@ const Router = createStackNavigator(
     HomeScreen,
     LoginScreen,
     RegisterScreen,
+    MyProfileScreen,
     ForgotPasswordScreen,
     Dashboard,
     AuthLoadingScreen
