@@ -40,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
       setError(response.error);
     }
 
-    setLoading(false);
+    setLoading(false);    
   };
 
   return (
@@ -76,9 +76,7 @@ const LoginScreen = ({ navigation }) => {
       />
 
       <View style={styles.forgotPassword}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("ForgotPasswordScreen")}
-        >
+        <TouchableOpacity onPress={() => navigation.navigate("ForgotPasswordScreen")}>
           <Text style={styles.label}>Forgot your password?</Text>
         </TouchableOpacity>
       </View>
