@@ -1,7 +1,8 @@
 import React, { memo } from "react";
-import Background from "../components/Background";
+import Background from "../components/ProfileBackground";
 import Header from "../components/Header";
 import BackButton from "../components/BackButton";
+
 
 // Default look for the profile screen
 const MyProfileScreen = ({ navigation }) => (
