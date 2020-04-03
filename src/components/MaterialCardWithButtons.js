@@ -2,29 +2,36 @@ import React, { memo } from "react";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
+
 function MaterialCardWithButtons(props) {
-  return (
+    return (
     <View style={[styles.container, props.style]}>
+      {/* figure out how to pass in imagines with kids */}
       <Image
-        source={require("../assets/background_dot.png")}
+        source={require("../assets/sampleImage.png")}
         style={styles.cardItemImagePlace}
       ></Image>
+      {/* does it need props? */}
       <View style={styles.buttonGroup}>
+        {/* trading screen */}
         <TouchableOpacity style={styles.leftBtn}>
           <MaterialCommunityIconsIcon
-            name="heart"
+            name="wallet"
             style={styles.icon1}
           ></MaterialCommunityIconsIcon>
         </TouchableOpacity>
+        {/* freinds search bar */}
         <TouchableOpacity style={styles.centerBtn}>
           <MaterialCommunityIconsIcon
-            name="book"
+            name="account-group"
             style={styles.icon2}
           ></MaterialCommunityIconsIcon>
         </TouchableOpacity>
+        {/* this is where the user can edit his dining preferences,
+          trading preferences, etc. */}
         <TouchableOpacity style={styles.rightBtn}>
           <MaterialCommunityIconsIcon
-            name="share"
+            name="cogs"
             style={styles.icon3}
           ></MaterialCommunityIconsIcon>
         </TouchableOpacity>
