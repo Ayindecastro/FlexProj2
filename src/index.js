@@ -2,26 +2,34 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 import {
+  AuthLoadingScreen,
+  ChatScreen,
+  Dashboard,
+  ForgotPasswordScreen,
+  FriendScreen,
   HomeScreen,
   LoginScreen,
-  RegisterScreen,
   MyProfileScreen,
-  ForgotPasswordScreen,
+  ProfileScreen,
+  RegisterScreen,
+  SettingsScreen,
   TradingScreen,
-  AuthLoadingScreen,
-  Dashboard
 } from "./screens";
 
 const Router = createStackNavigator(
   {
+    AuthLoadingScreen,
+    ChatScreen,
+    Dashboard,
+    ForgotPasswordScreen,
+    FriendScreen,
     HomeScreen,
     LoginScreen,
-    RegisterScreen,
     MyProfileScreen,
-    ForgotPasswordScreen,
+    ProfileScreen,
+    RegisterScreen,
+    SettingsScreen,
     TradingScreen,
-    Dashboard,
-    AuthLoadingScreen
   },
   {
     initialRouteName: "AuthLoadingScreen",

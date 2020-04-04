@@ -4,11 +4,11 @@ import Header from "../components/Header";
 import BackButton from "../components/BackButton";
 
 
-// Default look for the trading screen
+// Default look for screen
 const TradingScreen = ({ navigation }) => (
     <Background>
       <BackButton goBack={() => navigation.navigate("MyProfileScreen")}/>
-      <Header>Your Profile</Header>
+      <Header>Trade Screen</Header>
     </Background>
   );
 
