@@ -1,15 +1,13 @@
 import React, { memo } from "react";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
-import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Wallet from "../components/ButtonWallet";
-import Background from "../components/Background";
+import Friends from "../components/FriendsButton";
+import Settings from "../components/SettingsButton"
 import { screenWidth } from "../core/dimensions";
 
 
 // Profile screen
 const MyProfileScreen = ({ navigation }) => (
-    // <Background>
-      
         <View style={[styles.container, styles.materialCardWithButtons]}>
           {/* background image*/}
           <Image
@@ -26,26 +24,19 @@ const MyProfileScreen = ({ navigation }) => (
               innerComponentStyle = {styles.icon1} />
 
             {/* button friends search bar */}
-            <TouchableOpacity style={styles.centerBtn}>
-              <MaterialCommunityIconsIcon
-                name="account-group"
-                style={styles.icon2}
-              ></MaterialCommunityIconsIcon>
-            </TouchableOpacity>
+            <Friends
+              onFriendPress = {() => navigation.navigate("TradingScreen")}
+              outerComponentStyle = {styles.centerBtn}
+              innerComponentStyle = {styles.icon2} />
 
             {/* button to edit his dining preferences,
               trading preferences, etc. */}
-            <TouchableOpacity style={styles.rightBtn}>
-              <MaterialCommunityIconsIcon
-                name="cogs"
-                style={styles.icon3}
-              ></MaterialCommunityIconsIcon>
-            </TouchableOpacity>
-            
+            <Settings
+              onSettingsPress = {() => navigation.navigate("TradingScreen")}
+              outerComponentStyle = {styles.rightBtn}
+              innerComponentStyle = {styles.icon3} />            
           </View>
         </View>
-      
-    // </Background>
   );
 
 
