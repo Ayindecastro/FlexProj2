@@ -11,12 +11,4 @@ const ButtonWallet = ({onWalletPress, outerComponentStyle, innerComponentStyle})
     </TouchableOpacity>
 );
 
-// const styles = StyleSheet.create({
-//     icon1: {
-//         fontSize: 24,
-//         color: "#000",
-//         opacity: 0.5
-//     },
-// });
-
 export default memo(ButtonWallet);
