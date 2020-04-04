@@ -1,13 +1,20 @@
 import React, { memo } from "react";
-import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import Wallet from "../components/ButtonWallet";
 import Friends from "../components/FriendsButton";
-import Settings from "../components/SettingsButton"
+import Settings from "../components/SettingsButton";
+import Back from "../components/BackButton";
 import { screenWidth } from "../core/dimensions";
 
 
 // Profile screen
 const MyProfileScreen = ({ navigation }) => (
+      <View>
+        {/* return to home screen 
+        note - currently does not appear on screen*/}
+        <BackButton goBack = {() => navigation.navigate("HomeScreen")}/>
+
+        {/* Profile Screen's panel conglomeration of components */}
         <View style={[styles.container, styles.materialCardWithButtons]}>
           {/* background image*/}
           <Image
@@ -25,18 +32,19 @@ const MyProfileScreen = ({ navigation }) => (
 
             {/* button friends search bar */}
             <Friends
-              onFriendPress = {() => navigation.navigate("TradingScreen")}
+              onFriendPress = {() => navigation.navigate("FriendScreen")}
               outerComponentStyle = {styles.centerBtn}
               innerComponentStyle = {styles.icon2} />
 
             {/* button to edit his dining preferences,
               trading preferences, etc. */}
             <Settings
-              onSettingsPress = {() => navigation.navigate("TradingScreen")}
+              onSettingsPress = {() => navigation.navigate("SettingsScreen")}
               outerComponentStyle = {styles.rightBtn}
               innerComponentStyle = {styles.icon3} />            
           </View>
         </View>
+      </View>
   );
 
 
