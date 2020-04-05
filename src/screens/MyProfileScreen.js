@@ -4,11 +4,8 @@ import Wallet from "../components/ButtonWallet";
 import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
 import BackButton from "../components/BackButton";
-import { screenWidth } from "../core/dimensions";
+import { screenWidth, screenHeight } from "../core/dimensions";
 
-
-const profileWidth= screenWidth * 0.5;
-console.log(profileWidth);
 
 // Profile screen
 const MyProfileScreen = ({ navigation }) => (
@@ -27,35 +24,42 @@ const MyProfileScreen = ({ navigation }) => (
     <View style={styles.buttonGroup}>
 
       {/* button to trading screen */}
-      <Wallet  
-        onWalletPress = {() => navigation.navigate("TradingScreen")}
-        outerComponentStyle = {styles.leftBtn} 
-        innerComponentStyle = {styles.icon1} />
+      <View style = {styles.walletContainer}>
+        <Wallet  
+          onWalletPress = {() => navigation.navigate("TradingScreen")}
+          outerComponentStyle = {styles.leftBtn} 
+          innerComponentStyle = {styles.icon1} />
+      </View>
 
       {/* button friends search bar */}
-      <Friends
-        onFriendPress = {() => navigation.navigate("FriendScreen")}
-        outerComponentStyle = {styles.centerBtn}
-        innerComponentStyle = {styles.icon2} />
+      <View style = {styles.friendContainer}>
+        <Friends
+          onFriendPress = {() => navigation.navigate("FriendScreen")}
+          outerComponentStyle = {styles.centerBtn}
+          innerComponentStyle = {styles.icon2} />
+      </View>
 
       {/* button to edit his dining preferences,
         trading preferences, etc. */}
-      <Settings
-        onSettingsPress = {() => navigation.navigate("SettingsScreen")}
-        outerComponentStyle = {styles.rightBtn}
-        innerComponentStyle = {styles.icon3} />            
+      <View style = {styles.settingsContainer}>
+        <Settings
+          onSettingsPress = {() => navigation.navigate("SettingsScreen")}
+          outerComponentStyle = {styles.rightBtn}
+          innerComponentStyle = {styles.icon3} />     
+      </View>       
     </View>
 
-    <View style = {styles.defaultProPicView}>
-      <ImageBackground 
-        source = {require("../assets/default_profile.png")}
-        style = {styles.profilePic}>
-        <View style = {styles.editButtonView}>
-          <Button 
-            title= "Edit Profile Picture"/>
-        </View>
-      </ImageBackground>
-    </View>
+      <View style = {styles.containerPic}>
+        <ImageBackground 
+          source = {require("../assets/default_profile.png")}
+          style = {styles.profilePic}>
+          <View style = {styles.editButtonView}>
+            <Button 
+              title= "Edit Profile Picture"/>
+          </View>
+        </ImageBackground>
+      </View>
+    
 
     {/* button back to home
     needs to be after everything else in order to overlay with position = 'absolute' */}
@@ -68,6 +72,7 @@ const styles = StyleSheet.create({
   container: {
     width: screenWidth,
     flex: 1,
+    alignItems: 'center',
   },
   cardItemImagePlace: {
     flex: 3,
@@ -76,17 +81,14 @@ const styles = StyleSheet.create({
   backbuttonView: {
     position: "absolute",
   },
-  defaultProPicView: {
+  containerPic: {
+    backgroundColor: 'white',
     position: "absolute",
-    // width: 200,
-    // height: 200,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    justifyContent: 'center', 
     alignItems: 'center',
-    // backgroundColor: "white",
+    justifyContent: 'center',
+    width: 225,
+    height: 225,
+    marginVertical: 150,    
   },
   profilePic: {
     width: 200,
@@ -94,9 +96,8 @@ const styles = StyleSheet.create({
   },
   editButtonView: {
     position: "absolute",
-    justifyContent: "center",
     backgroundColor: "white",
-    color: "black",
+    width: 200,
     bottom: 0,
   },
   buttonGroup: {
@@ -127,7 +128,20 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#000",
     opacity: 0.5,
-  }
+  },
+  walletContainer: {
+    width: screenWidth/3,
+    alignItems: 'center',
+  },
+  friendContainer: {
+    width: screenWidth/3,
+    alignItems: 'center',
+  },
+  settingsContainer: {
+    width: screenWidth/3,
+    alignItems: 'center',
+  },
+  
 });
 
 export default memo(MyProfileScreen);
