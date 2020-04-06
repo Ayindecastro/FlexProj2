@@ -4,8 +4,10 @@ import Wallet from "../components/ButtonWallet";
 import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
 import BackButton from "../components/BackButton";
+import TopBar from "../components/TopBar";
 import { screenWidth, screenHeight } from "../core/dimensions";
-
+const topBarH = (18/screenHeight * 100);
+console.log(topBarH);
 
 // Profile screen
 const MyProfileScreen = ({ navigation }) => (
@@ -59,6 +61,8 @@ const MyProfileScreen = ({ navigation }) => (
           </View>
         </ImageBackground>
       </View>
+
+      <TopBar topBarStyle = {styles.containerTopBar} />
     
 
     {/* button back to home
@@ -89,6 +93,14 @@ const styles = StyleSheet.create({
     width: 225,
     height: 225,
     marginVertical: 150,    
+  },
+  containerTopBar: {
+    backgroundColor: 'white',
+    top: 0,
+    width: screenWidth,
+    height: '2.69%', 
+    // height: 18,
+    position: 'absolute',
   },
   profilePic: {
     width: 200,
