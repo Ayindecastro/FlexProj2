@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { StyleSheet, View, ImageBackground, Button} from "react-native";
+import { Text, StyleSheet, View, ImageBackground, Button} from "react-native";
 import Wallet from "../components/ButtonWallet";
 import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
@@ -51,6 +51,7 @@ const MyProfileScreen = ({ navigation }) => (
       </View>       
     </View>
 
+      {/* this is the profile picture - need to figure out how to import*/}
       <View style = {styles.containerPic}>
         <ImageBackground 
           source = {require("../assets/default_profile.png")}
@@ -62,8 +63,27 @@ const MyProfileScreen = ({ navigation }) => (
         </ImageBackground>
       </View>
 
+      {/* top bar - white to allow user to see time/rest of bar */}
       <TopBar topBarStyle = {styles.containerTopBar} />
     
+      {/* meal container - holds flex and swipe amounts */}
+      <View style = {styles.mealContainer}>
+        {/* flex amount container */}
+        <View style = {styles.flexContainer}>
+          <Text style = {styles.flexFont}>
+            Flex
+          </Text>
+        </View>
+
+        {/* meal swipe amount container */}
+        <View style = {styles.swipeContainer}>
+          <Text style = {styles.swipeFont}>
+            Swipes
+          </Text>
+        </View>
+      </View>
+
+      
 
     {/* button back to home
     needs to be after everything else in order to overlay with position = 'absolute' */}
@@ -102,6 +122,32 @@ const styles = StyleSheet.create({
     // height: 18,
     position: 'absolute',
   },
+  mealContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    position: 'absolute',
+    flexDirection: 'row',
+    marginVertical: 425,
+    marginHorizontal: 100,
+  },
+  flexContainer: {
+    backgroundColor: 'purple',
+    borderWidth: 2,
+    borderColor: 'black',
+  },
+  swipeContainer: {
+    backgroundColor: 'purple',
+    borderWidth: 2,
+    borderColor: 'black',
+  },
+  flexFont: {
+    fontSize: 24,
+    color: 'white',
+  },
+  swipeFont: {
+    fontSize: 24,
+    color: 'white',
+  },  
   profilePic: {
     width: 200,
     height: 200,
