@@ -6,8 +6,10 @@ import Settings from "../components/SettingsButton";
 import BackButton from "../components/BackButton";
 import TopBar from "../components/TopBar";
 import { screenWidth, screenHeight } from "../core/dimensions";
-const topBarH = (18/screenHeight * 100);
-console.log(topBarH);
+
+
+// const topBarH = (18/screenHeight * 100);
+// console.log(topBarH);
 
 // Profile screen
 const MyProfileScreen = ({ navigation }) => (
@@ -64,21 +66,21 @@ const MyProfileScreen = ({ navigation }) => (
       </View>
 
       {/* top bar - white to allow user to see time/rest of bar */}
-      <TopBar topBarStyle = {styles.containerTopBar} />
+      <TopBar/>
     
       {/* meal container - holds flex and swipe amounts */}
       <View style = {styles.mealContainer}>
         {/* flex amount container */}
         <View style = {styles.flexContainer}>
           <Text style = {styles.flexFont}>
-            Flex
+            Flex: amount
           </Text>
         </View>
 
         {/* meal swipe amount container */}
         <View style = {styles.swipeContainer}>
           <Text style = {styles.swipeFont}>
-            Swipes
+            Swipes: amount
           </Text>
         </View>
       </View>
@@ -114,21 +116,23 @@ const styles = StyleSheet.create({
     height: 225,
     marginVertical: 150,    
   },
-  containerTopBar: {
-    backgroundColor: 'white',
-    top: 0,
-    width: screenWidth,
-    height: '2.69%', 
-    // height: 18,
-    position: 'absolute',
-  },
+  // containerTopBar: {
+  //   backgroundColor: 'white',
+  //   top: 0,
+  //   width: screenWidth,
+  //   height: '2.69%', 
+  //   // height: 18,
+  //   position: 'absolute',
+  // },
   mealContainer: {
     alignItems: "center",
     justifyContent: "center",
     position: 'absolute',
     flexDirection: 'row',
     marginVertical: 425,
-    marginHorizontal: 100,
+    width: 325,
+    height: screenHeight / 8,
+    backgroundColor: "white",
   },
   flexContainer: {
     backgroundColor: 'purple',
