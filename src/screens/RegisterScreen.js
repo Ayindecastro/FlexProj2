@@ -14,6 +14,7 @@ import {
 } from "../core/utils";
 import { signInUser } from "../api/auth-api";
 import Toast from "../components/Toast";
+import TopBar from "../components/TopBar";
 
 const RegisterScreen = ({ navigation }) => {
   const [name, setName] = useState({ value: "", error: "" });
@@ -53,6 +54,7 @@ const RegisterScreen = ({ navigation }) => {
 
   return (
     <Background>
+      <TopBar/>
       <BackButton goBack={() => navigation.navigate("HomeScreen")} />
 
       <Logo />

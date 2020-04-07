@@ -10,6 +10,7 @@ import { theme } from "../core/theme";
 import { emailValidator, passwordValidator } from "../core/utils";
 import { loginUser } from "../api/auth-api";
 import Toast from "../components/Toast";
+import TopBar from "../components/TopBar";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState({ value: "", error: "" });
@@ -45,6 +46,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <Background>
+      <TopBar/>
       <BackButton goBack={() => navigation.navigate("HomeScreen")} />
 
       <Logo />
