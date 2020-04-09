@@ -23,7 +23,13 @@ const Router = createStackNavigator (
     Dashboard,
     ForgotPasswordScreen,
     FriendScreen,
-    HomeScreen,
+    HomeScreen :{
+      name: 'HomeScreen',
+      screen: HomeScreen,
+      navigationOptions: {
+        gesturesEnabled: false,
+      }
+    },
     LoginScreen,
     MyProfileScreen,
     ProfileScreen,
