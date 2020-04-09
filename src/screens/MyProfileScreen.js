@@ -116,14 +116,6 @@ const styles = StyleSheet.create({
     height: 225,
     marginVertical: 150,    
   },
-  // containerTopBar: {
-  //   backgroundColor: 'white',
-  //   top: 0,
-  //   width: screenWidth,
-  //   height: '2.69%', 
-  //   // height: 18,
-  //   position: 'absolute',
-  // },
   mealContainer: {
     alignItems: "center",
     justifyContent: "center",

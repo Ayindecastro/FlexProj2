@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import { screenWidth, screenHeight } from "../core/dimensions";
 
 
-const topBar = ({topBarStyle}) => (
+const topBar = () => (
     <View style = {styles.containerTopBar}/>
 )
 
