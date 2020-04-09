@@ -21,9 +21,9 @@ const HomeScreen = ({ navigation }) => (
     <Button mode="outline" onPress={() => navigation.navigate("RegisterScreen")}>
       Sign Up
     </Button>
-    <Button mode="outline" onPress={() => navigation.navigate("MyProfileScreen")}>
+    {/* <Button mode="outline" onPress={() => navigation.navigate("MyProfileScreen")}>
       Profile
-    </Button>
+    </Button> */}
   </Background>
 );
 

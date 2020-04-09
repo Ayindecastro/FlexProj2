@@ -7,9 +7,22 @@ import BackButton from "../components/BackButton";
 import TopBar from "../components/TopBar";
 import { screenWidth, screenHeight } from "../core/dimensions";
 
+import firebase from "firebase/app";
+import "firebase/auth";
+import { FIREBASE_CONFIG } from "../core/config";
+
 
 // const topBarH = (18/screenHeight * 100);
 // console.log(topBarH);
+
+signOutUser = async () => {
+  try {
+      await firebase.auth().signOut();
+      navigate('Auth');
+  } catch (e) {
+      console.log(e);
+  }
+}
 
 // Profile screen
 const MyProfileScreen = ({ navigation }) => (
@@ -89,7 +102,7 @@ const MyProfileScreen = ({ navigation }) => (
 
     {/* button back to home
     needs to be after everything else in order to overlay with position = 'absolute' */}
-    <BackButton style = {styles.backbutton} goBack = {() => navigation.navigate("HomeScreen")}/>
+    <BackButton style = {styles.backbutton} goBack = {signOutUser}/>
   </View>
   );
 

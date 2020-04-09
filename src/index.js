@@ -16,7 +16,7 @@ import {
   TradingScreen,
 } from "./screens";
 
-const Router = createStackNavigator(
+const Router = createStackNavigator (
   {
     AuthLoadingScreen,
     ChatScreen,
