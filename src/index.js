@@ -34,9 +34,10 @@ const Router = createStackNavigator (
   {
     initialRouteName: "AuthLoadingScreen",
     headerMode: "none",
-    navigationOptions: {
+    swipeEnabled: false,
+    defaultNavigationOptions: {
       gesturesEnabled: false,
-    }
+    },
   }
 );
 
