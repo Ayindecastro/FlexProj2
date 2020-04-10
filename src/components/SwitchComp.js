@@ -1,28 +1,26 @@
-import React, { memo } from "react";
-import { StyleSheet, View, Switch } from "react-native";
+import React, { useState } from "react";
+import { View, Switch, StyleSheet } from "react-native";
 
-function MaterialSwitch(props) {
+export default function SwitchComp() {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
   return (
-    <View style={[styles.container, props.style]}>
+    <View style={styles.container}>
       <Switch
-        value={props.value ? true : false}
-        thumbColor={props.value ? "#3F51B5" : "#FFF"}
-        trackColor={{ true: "rgba(63,81,181,0.6)", false: "#9E9E9E" }}
-        style={styles.switch1}
-      ></Switch>
+        trackColor={{ false: "#6a5cff", true: "green" }}
+        thumbColor={isEnabled ? "white" : "white"}
+        ios_backgroundColor="#6a5cff"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  switch1: {
-    width: 45,
-    height: 22
+    position: "absolute",
   }
 });
 
-export default memo(MaterialSwitch);
