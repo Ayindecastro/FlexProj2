@@ -11,7 +11,7 @@ const topBar = () => (
 
 const styles = StyleSheet.create({
     containerTopBar: {
-        backgroundColor: 'white',
+        backgroundColor: '#6a5cff',
         top: 0,
         width: screenWidth,
         height: '2.69%', 

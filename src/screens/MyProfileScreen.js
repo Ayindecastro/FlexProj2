@@ -3,13 +3,11 @@ import { Text, StyleSheet, View, ImageBackground, Button} from "react-native";
 import Wallet from "../components/ButtonWallet";
 import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
-import BackButton from "../components/BackButton";
+import LogOut from "../components/LogoutButton";
 import TopBar from "../components/TopBar";
 import { screenWidth, screenHeight } from "../core/dimensions";
-
 import firebase from "firebase/app";
 import "firebase/auth";
-import { FIREBASE_CONFIG } from "../core/config";
 
 
 // const topBarH = (18/screenHeight * 100);
@@ -102,7 +100,7 @@ const MyProfileScreen = ({ navigation }) => (
 
     {/* button back to home
     needs to be after everything else in order to overlay with position = 'absolute' */}
-    <BackButton style = {styles.backbutton} goBack = {signOutUser}/>
+    <LogOut style = {styles.backbuttonView} onLogOutPress = {signOutUser}/>
   </View>
   );
 
@@ -140,12 +138,12 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   flexContainer: {
-    backgroundColor: 'purple',
+    backgroundColor: "#6a5cff",
     borderWidth: 2,
     borderColor: 'black',
   },
   swipeContainer: {
-    backgroundColor: 'purple',
+    backgroundColor: "#6a5cff",
     borderWidth: 2,
     borderColor: 'black',
   },
@@ -171,12 +169,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 8,
+    backgroundColor: "#6a5cff",
+    width: screenWidth,
   },
   leftBtn: {
     padding: 8,
   },
   icon1: {
-    fontSize: 24,
+    fontSize: 28,
     color: "#000",
     opacity: 0.5,
   },
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   icon2: {
-    fontSize: 24,
+    fontSize: 28,
     color: "#000",
     opacity: 0.5,
   },
@@ -192,21 +192,24 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   icon3: {
-    fontSize: 24,
+    fontSize: 28,
     color: "#000",
     opacity: 0.5,
   },
   walletContainer: {
     width: screenWidth/3,
     alignItems: 'center',
+    backgroundColor: "#6a5cff",
   },
   friendContainer: {
     width: screenWidth/3,
     alignItems: 'center',
+    backgroundColor: "#6a5cff",
   },
   settingsContainer: {
     width: screenWidth/3,
     alignItems: 'center',
+    backgroundColor: "#6a5cff",
   },
   
 });
