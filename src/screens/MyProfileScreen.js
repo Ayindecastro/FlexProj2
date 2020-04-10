@@ -16,7 +16,6 @@ import "firebase/auth";
 signOutUser = async () => {
   try {
       await firebase.auth().signOut();
-      navigate('Auth');
   } catch (e) {
       console.log(e);
   }

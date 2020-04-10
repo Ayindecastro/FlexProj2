@@ -1,18 +1,17 @@
 import React, { memo } from "react";
-import { Text, StyleSheet, View, ImageBackground, Button} from "react-native";
+import { Text, StyleSheet, View, ImageBackground} from "react-native";
 import Profile from "../components/ProfileButton";
 import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
 import TopBar from "../components/TopBar";
 import { screenWidth, screenHeight } from "../core/dimensions";
-import Switchbtn from "../components/SwitchComp";
 
 
 // const topBarH = (18/screenHeight * 100);
 // console.log(topBarH);
 
 // Profile screen
-const MyProfileScreen = ({ navigation }) => (
+const TradingScreen = ({ navigation }) => (
   
   // {/* Profile Screen's panel conglomeration of components */}
   <View style={[styles.container]}>    
@@ -55,8 +54,6 @@ const MyProfileScreen = ({ navigation }) => (
 
       {/* top bar - white to allow user to see time/rest of bar */}
       <TopBar/>  
-
-    <Switchbtn style = {styles.switchBtn} />
   </View>
   );
 
@@ -120,13 +117,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
-  switchBtn: {
-    // todo
-  },
   
 });
 
-export default memo(MyProfileScreen);
+export default memo(TradingScreen);
 
 
 
