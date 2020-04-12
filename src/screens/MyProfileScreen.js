@@ -76,6 +76,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'white',
   },
+  bufferFont: {
+    fontSize: 24,
+    color: '#151716',
+  },
   spaceFont: {
     fontSize: 24,
     color: '#151716',
