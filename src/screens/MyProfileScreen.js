@@ -220,7 +220,7 @@ export default class ImagePickerExample extends React.Component {
                 style = {styles.profilePic}>
                 <View style = {styles.editButtonView}>
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+                        {image && <Image source={{ uri: image }} style={{ width: 200, height: 200, borderRadius: 100 }} />}
                         <Button title="Edit Profile Picture" onPress={this._pickImage} />
                     </View>
                 </View>
