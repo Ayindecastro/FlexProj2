@@ -71,7 +71,7 @@ const MyProfileScreen = ({ navigation }) => (
 
       <View style = {styles.containerPic}>
         <ImageBackground 
-          source = {require("../assets/colleenPic.png")}
+          source = {require("../assets/ayindePic.png")}
           style = {styles.profilePic}>
           <View style = {styles.editButtonView}>
             <Button 

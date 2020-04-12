@@ -13,7 +13,7 @@ const HomeScreen = ({ navigation }) => (
     <Header>FLEX Trade</Header>
 
     <Paragraph>
-     Eat your wallet out
+     5C Food Marketplace
     </Paragraph>
     <Button mode="contained" onPress={() => navigation.navigate("LoginScreen")}>
       Login
