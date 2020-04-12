@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Text, StyleSheet, View, ImageBackground, Button} from "react-native";
+import { Text, StyleSheet, View, ImageBackground, Button, TouchableOpacity} from "react-native";
 import Wallet from "../components/ButtonWallet";
 import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
@@ -8,6 +8,7 @@ import TopBar from "../components/TopBar";
 import { screenWidth, screenHeight } from "../core/dimensions";
 import firebase from "firebase/app";
 import "firebase/auth";
+
 
 
 // const topBarH = (18/screenHeight * 100);
@@ -21,6 +22,7 @@ signOutUser = async () => {
   }
 }
 
+
 // Profile screen
 const MyProfileScreen = ({ navigation }) => (
   
@@ -30,7 +32,7 @@ const MyProfileScreen = ({ navigation }) => (
 
     {/* background image*/}
     <ImageBackground
-      source={require("../assets/sampleImage.png")}
+      source={require("../assets/blackbackground.png")}
       style={styles.cardItemImagePlace}/>
 
     
@@ -64,6 +66,9 @@ const MyProfileScreen = ({ navigation }) => (
     </View>
 
       {/* this is the profile picture - need to figure out how to import*/}
+      
+  
+
       <View style = {styles.containerPic}>
         <ImageBackground 
           source = {require("../assets/default_profile.png")}
@@ -83,14 +88,14 @@ const MyProfileScreen = ({ navigation }) => (
         {/* flex amount container */}
         <View style = {styles.flexContainer}>
           <Text style = {styles.flexFont}>
-            Flex: amount
+            Flex: $8   
           </Text>
         </View>
 
         {/* meal swipe amount container */}
         <View style = {styles.swipeContainer}>
           <Text style = {styles.swipeFont}>
-            Swipes: amount
+            Swipes: 2
           </Text>
         </View>
       </View>
@@ -134,17 +139,17 @@ const styles = StyleSheet.create({
     marginVertical: 425,
     width: 325,
     height: screenHeight / 8,
-    backgroundColor: "white",
+    backgroundColor: "#151716",
   },
   flexContainer: {
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#151716",
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: '#151716',
   },
   swipeContainer: {
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#151716",
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: '#151716',
   },
   flexFont: {
     fontSize: 24,
@@ -153,7 +158,7 @@ const styles = StyleSheet.create({
   swipeFont: {
     fontSize: 24,
     color: 'white',
-  },  
+  },
   profilePic: {
     width: 200,
     height: 200,
@@ -209,6 +214,11 @@ const styles = StyleSheet.create({
     width: screenWidth/3,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
+  },
+  thumbnail: {
+    width: 300,
+    height: 300,
+    resizeMode: "contain"
   },
   
 });
