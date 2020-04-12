@@ -71,7 +71,7 @@ const MyProfileScreen = ({ navigation }) => (
 
       <View style = {styles.containerPic}>
         <ImageBackground 
-          source = {require("../assets/default_profile.png")}
+          source = {require("../assets/colleenPic.png")}
           style = {styles.profilePic}>
           <View style = {styles.editButtonView}>
             <Button 
@@ -79,6 +79,12 @@ const MyProfileScreen = ({ navigation }) => (
           </View>
         </ImageBackground>
       </View>
+
+      <View style = {styles.school}>
+          <Text style = {styles.flexFont}>
+            CMC 
+          </Text>
+          </View>
 
       {/* top bar - white to allow user to see time/rest of bar */}
       <TopBar/>
@@ -88,14 +94,19 @@ const MyProfileScreen = ({ navigation }) => (
         {/* flex amount container */}
         <View style = {styles.flexContainer}>
           <Text style = {styles.flexFont}>
-            Flex: $8   
+            FLEX: $20   
           </Text>
         </View>
 
+        <View style = {styles.flexContainer}>
+        <Text style = {styles.spaceFont}>
+            Adequate 
+          </Text>
+        </View>
         {/* meal swipe amount container */}
         <View style = {styles.swipeContainer}>
           <Text style = {styles.swipeFont}>
-            Swipes: 2
+            Swipes: 6
           </Text>
         </View>
       </View>
@@ -123,13 +134,23 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   containerPic: {
-    backgroundColor: 'white',
+    backgroundColor: '#151716',
     position: "absolute",
     alignItems: 'center',
     justifyContent: 'center',
     width: 225,
     height: 225,
     marginVertical: 150,    
+  },
+  school: {
+    backgroundColor: 'maroon',
+    position: "absolute",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    width: 100,
+    height: 30,
+    marginVertical: 370,    
   },
   mealContainer: {
     alignItems: "center",
@@ -155,6 +176,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'white',
   },
+  spaceFont: {
+    fontSize: 24,
+    color: '#151716',
+  },
   swipeFont: {
     fontSize: 24,
     color: 'white',
@@ -165,7 +190,7 @@ const styles = StyleSheet.create({
   },
   editButtonView: {
     position: "absolute",
-    backgroundColor: "white",
+    backgroundColor: "#151716",
     width: 200,
     bottom: 0,
   },
