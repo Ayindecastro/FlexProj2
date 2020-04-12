@@ -10,3 +10,4 @@ export { default as TradingScreen } from './TradingScreen';
 export { default as SettingsScreen } from './SettingsScreen';
 export { default as FriendScreen } from './FriendScreen';
 export { default as ChatScreen } from './ChatScreen';
+export { default as TestScreen } from './TestScreen';

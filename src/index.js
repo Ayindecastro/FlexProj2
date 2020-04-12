@@ -14,6 +14,7 @@ import {
   RegisterScreen,
   SettingsScreen,
   TradingScreen,
+  TestScreen,
 } from "./screens";
 
 const Router = createStackNavigator (
@@ -30,6 +31,7 @@ const Router = createStackNavigator (
     RegisterScreen,
     SettingsScreen,
     TradingScreen,
+    TestScreen,
   },
   {
     initialRouteName: "AuthLoadingScreen",
