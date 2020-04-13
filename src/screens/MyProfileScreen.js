@@ -14,6 +14,11 @@ import { screenWidth, screenHeight } from "../core/dimensions";
 // import styles from '../assets/style';
 // import { memo } from "react";
 
+
+console.log(firebase)
+
+
+
 const styles = StyleSheet.create({
   container: {
     width: screenWidth,

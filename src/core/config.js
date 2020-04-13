@@ -8,5 +8,4 @@ export const FIREBASE_CONFIG = {
     messagingSenderId: "1018037864183",
     appId: "1:1018037864183:web:83819233ded476a7a635f2",
     measurementId: "G-2TV894VHPV"
-
 };
