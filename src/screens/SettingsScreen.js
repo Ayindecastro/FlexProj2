@@ -1,67 +1,37 @@
-import React, { memo } from "react";
-import { Text, StyleSheet, View, ImageBackground} from "react-native";
-import Profile from "../components/ProfileButton";
-import Friends from "../components/FriendsButton";
+import React, { useState } from "react";
+import ReactDom from "react-dom";
+import { Text, StyleSheet, View, ImageBackground, Switch} from "react-native";
+import Constants from 'expo-constants';
+import * as Permissions from 'expo-permissions';
 import Wallet from "../components/ButtonWallet";
+import Friends from "../components/FriendsButton";
+import Settings from "../components/SettingsButton";
+import LogOut from "../components/LogoutButton";
+import Profile from "../components/ProfileButton";
 import TopBar from "../components/TopBar";
-import { screenWidth, screenHeight } from "../core/dimensions";
-import Switchbtn from "../components/SwitchComp";
-
+import firebase from "firebase/app";
+import "firebase/auth";
+import {screenWidth, screenHeight } from "../core/dimensions";
 
 // const topBarH = (18/screenHeight * 100);
 // console.log(topBarH);
 
-// Profile screen
-const SettingsScreen = ({ navigation }) => (
-  
-  // {/* Profile Screen's panel conglomeration of components */}
-  <View style={[styles.container]}>    
-    
-
-    {/* background image*/}
-    <ImageBackground
-      source={require("../assets/sampleImage.png")}
-      style={styles.cardItemImagePlace}/>
-
-    
-    {/* buttons for lower panel*/}
-    <View style={styles.buttonGroup}>
-
-      {/* button to trading screen */}
-      <View style = {styles.walletContainer}>
-        <Profile 
-          onProfilePress = {() => navigation.navigate("MyProfileScreen")}
-          outerComponentStyle = {styles.leftBtn} 
-          innerComponentStyle = {styles.icon1} />
-      </View>
-
-      {/* button friends search bar */}
-      <View style = {styles.friendContainer}>
-        <Friends
-          onFriendPress = {() => navigation.navigate("FriendScreen")}
-          outerComponentStyle = {styles.centerBtn}
-          innerComponentStyle = {styles.icon2} />
-      </View>
-
-      {/* button to edit his dining preferences,
-        trading preferences, etc. */}
-      <View style = {styles.settingsContainer}>
-        <Wallet
-          onWalletPress = {() => navigation.navigate("TradingScreen")}
-          outerComponentStyle = {styles.rightBtn}
-          innerComponentStyle = {styles.icon3} />     
-      </View>       
-    </View>
-
-      {/* top bar - white to allow user to see time/rest of bar */}
-      <TopBar/>  
-
-    <Switchbtn style = {styles.switchBtn} />
-  </View>
-  );
-
-
 const styles = StyleSheet.create({
+
+  diningLocationsContainter: {
+    alignItems: "center",
+    justifyContent: "center",
+    position: 'absolute',
+    flexDirection: 'row',
+    marginVertical: 125,
+    width: 325,
+    height: screenHeight / 8,
+    backgroundColor: "white",
+  },
+  diningHeader: {
+    fontSize: 24,
+    color: 'purple',
+  },
   container: {
     width: screenWidth,
     flex: 1,
@@ -120,13 +90,86 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
-  switchBtn: {
-    // todo
-  },
+
   
 });
 
-export default memo(SettingsScreen);
+
+  export default class ourSettingScreen extends React.Component {
+    setUpToggle = async () => {
+      const [isEnabled, setIsEnabled] = useState(false);
+      const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+      }
+  
+      componentDidMount() {
+        this.setUpToggle();
+      }
+      
+    render() {
+    
+      return (
+    
+    
+      <View style={[styles.container]}>  
+
+      {/* Got this from https://reactnative.dev/docs/switch */}
+      <Switch
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={this.isEnabled ? "#f5dd4b" : "#f4f3f4"}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={this.toggleSwitch }
+          value={this.isEnabled }
+        />  
+    
+    {/* background image*/}
+    <ImageBackground
+      source={require("../assets/blackbackground.png")}
+      style={styles.cardItemImagePlace}/>
+
+ <View style={styles.diningLocationsContainter}>
+   <Text style={styles.diningHeader}> Preferred Dining Locations </Text>
+  </View> 
+
+    {/* buttons for lower panel*/}
+    <View style={styles.buttonGroup}>
+
+      {/* button to trading screen */}
+      <View style = {styles.walletContainer}>
+        <Profile 
+          onProfilePress = {() => navigation.navigate("MyProfileScreen")}
+          outerComponentStyle = {styles.leftBtn} 
+          innerComponentStyle = {styles.icon1} />
+      </View>
+
+      {/* button friends search bar */}
+      <View style = {styles.friendContainer}>
+        <Friends
+          onFriendPress = {() => navigation.navigate("FriendScreen")}
+          outerComponentStyle = {styles.centerBtn}
+          innerComponentStyle = {styles.icon2} />
+      </View>
+
+      {/* button to edit his dining preferences,
+        trading preferences, etc. */}
+      <View style = {styles.settingsContainer}>
+        <Wallet
+          onWalletPress = {() => navigation.navigate("TradingScreen")}
+          outerComponentStyle = {styles.rightBtn}
+          innerComponentStyle = {styles.icon3} />     
+      </View>       
+    </View>
+
+      {/* top bar - white to allow user to see time/rest of bar */}
+      <TopBar/>  
+
+    
+    </View>
+        );
+      }
+      
+    }
+    
+    
 
 
 
