@@ -21,13 +21,23 @@ const styles = StyleSheet.create({
     position: 'absolute',
     flexDirection: 'row',
     marginVertical: 125,
-    width: 325,
+    width: 200,
     height: screenHeight / 8,
-    backgroundColor: "white",
+    backgroundColor: "#151716",
+  },
+  diningLocationsContainter2: {
+    alignItems: "center",
+    justifyContent: "center",
+    position: 'absolute',
+    flexDirection: 'row',
+    marginVertical: 325,
+    width: 200,
+    height: screenHeight / 8,
+    backgroundColor: "#151716",
   },
   diningHeader: {
-    fontSize: 24,
-    color: 'purple',
+    fontSize: 20,
+    color: 'white',
   },
   container: {
     width: screenWidth,
@@ -110,7 +120,27 @@ const styles = StyleSheet.create({
           style={styles.cardItemImagePlace}/>
 
         <View style={styles.diningLocationsContainter}>
-          <Text style={styles.diningHeader}> Preferred Dining Locations </Text>
+          <Text style={styles.diningHeader}> Dining Locations: </Text>
+           {/* Got this from https://reactnative.dev/docs/switch */}
+        <Switch
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={this.state.switchValue ? "#f5dd4b" : "#f4f3f4"}
+          ios_backgroundColor="#3e3e3e"
+          value={this.state.switchValue}
+          onValueChange = {(switchValue) => this.setState((switchValue))}
+        />
+        </View> 
+
+        <View style={styles.diningLocationsContainter2}>
+          <Text style={styles.diningHeader}> Show Balance: </Text>
+           {/* Got this from https://reactnative.dev/docs/switch */}
+        <Switch
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={this.state.switchValue ? "#f5dd4b" : "#f4f3f4"}
+          ios_backgroundColor="#3e3e3e"
+          value={this.state.switchValue}
+          onValueChange = {(switchValue) => this.setState((switchValue))}
+        />
         </View> 
 
         {/* buttons for lower panel*/}
@@ -145,14 +175,7 @@ const styles = StyleSheet.create({
         {/* top bar - white to allow user to see time/rest of bar */}
         <TopBar/>  
 
-        {/* Got this from https://reactnative.dev/docs/switch */}
-        <Switch
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={this.state.switchValue ? "#f5dd4b" : "#f4f3f4"}
-          ios_backgroundColor="#3e3e3e"
-          value={this.state.switchValue}
-          onValueChange = {(switchValue) => this.setState((switchValue))}
-        />
+       
       </View>
   );
 }
