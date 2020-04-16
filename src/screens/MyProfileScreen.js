@@ -271,18 +271,9 @@ export default class ImagePickerExample extends React.Component {
     needs to be after everything else in order to overlay with position = 'absolute' */}
     <LogOut style = {styles.backbuttonView} onLogOutPress = {this.signOutUser}/>
 
-    
     </View>
     );
   }
-
-
-
-
-
-
-
-
 
   componentDidMount() {
     this.getPermissionAsync();

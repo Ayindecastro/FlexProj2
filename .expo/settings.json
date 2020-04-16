@@ -1,8 +1,8 @@
 {
+  "urlRandomness": "cy-88w",
   "hostType": "lan",
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "sf-svu",
   "https": false
 }

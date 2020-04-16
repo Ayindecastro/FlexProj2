@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 60677,
-  "expoServerNgrokUrl": "https://sf-svu.ayindecastro.flexproj2.exp.direct",
-  "packagerNgrokUrl": "https://packager.sf-svu.ayindecastro.flexproj2.exp.direct",
-  "ngrokPid": 60694,
+  "packagerPid": 51664,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": 19006
 }
