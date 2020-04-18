@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
 
   export default class ourSettingScreen extends React.Component {
     state = {
-      switchValue: false
+      switchValue1: false,
+      switchValue2: false
     }
 
     render() {
@@ -124,22 +125,21 @@ const styles = StyleSheet.create({
            {/* Got this from https://reactnative.dev/docs/switch */}
         <Switch
           trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={this.state.switchValue ? "#f5dd4b" : "#f4f3f4"}
+          thumbColor={this.state.switchValue1 ? "#f5dd4b" : "#f4f3f4"}
           ios_backgroundColor="#3e3e3e"
-          value={this.state.switchValue}
-          onValueChange = {(switchValue) => this.setState((switchValue))}
+          value={this.state.switchValue1}
+          onValueChange = {this._switchState1}
         />
         </View> 
 
         <View style={styles.diningLocationsContainter2}>
           <Text style={styles.diningHeader}> Show Balance: </Text>
-           {/* Got this from https://reactnative.dev/docs/switch */}
         <Switch
           trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={this.state.switchValue ? "#f5dd4b" : "#f4f3f4"}
+          thumbColor={this.state.switchValue2 ? "#f5dd4b" : "#f4f3f4"}
           ios_backgroundColor="#3e3e3e"
-          value={this.state.switchValue}
-          onValueChange = {(switchValue) => this.setState((switchValue))}
+          value={this.state.switchValue2}
+          onValueChange = {this._switchState2}
         />
         </View> 
 
@@ -179,6 +179,15 @@ const styles = StyleSheet.create({
       </View>
   );
 }
+      _switchState1 = async () => {
+        this.setState({switchValue1 : !this.state.switchValue1}) 
+      }
+
+      _switchState2 = async () => {
+        this.setState({switchValue2 : !this.state.switchValue2}) 
+      }
+
+
 }
 
     
