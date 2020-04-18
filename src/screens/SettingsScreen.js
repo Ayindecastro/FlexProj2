@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Component} from "react";
 import ReactDom from "react-dom";
 import { Text, StyleSheet, View, ImageBackground, Switch } from "react-native";
 import Constants from 'expo-constants';
@@ -10,7 +11,7 @@ import LogOut from "../components/LogoutButton";
 import Profile from "../components/ProfileButton";
 import TopBar from "../components/TopBar";
 import {screenWidth, screenHeight } from "../core/dimensions";
-
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 // const topBarH = (18/screenHeight * 100);
 // console.log(topBarH);
 
@@ -102,6 +103,41 @@ const styles = StyleSheet.create({
   
 });
 
+const items = [
+  // this is the parent or 'item'
+  {
+    name: 'Dining Halls',
+    id: 0,
+    // these are the children or 'sub items'
+    children: [
+      {
+        name: 'Collins',
+        id: 10,
+      },
+      {
+        name: 'Malott',
+        id: 17,
+      },
+      {
+        name: 'Frary',
+        id: 13,
+      },
+      {
+        name: 'Frank',
+        id: 14,
+      },
+      {
+        name: 'Hoch-Shanahan',
+        id: 15,
+      },
+      {
+        name: 'McConnel',
+        id: 16,
+      },
+    ],
+  },
+];
+
 
   export default class ourSettingScreen extends React.Component {
     state = {
@@ -109,19 +145,50 @@ const styles = StyleSheet.create({
       switchValue2: false
     }
 
+    
+      state = {
+        selectedItems: [],
+      };
+    
+    onSelectedItemsChange = (selectedItems) => {
+      this.setState({ selectedItems });
+    };
     render() {
     
       return (
-    
-    
+       
+
+      
       <View style={[styles.container]}>   
     
+
         {/* background image*/}
         <ImageBackground
           source={require("../assets/blackbackground.png")}
           style={styles.cardItemImagePlace}/>
 
+
+      
+      
+      
+    
+
+
         <View style={styles.diningLocationsContainter}>
+
+ {/* https://github.com/renrizzolo/react-native-sectioned-multi-select */}
+        <SectionedMultiSelect
+          items={items}
+          uniqueKey="id"
+          subKey="children"
+          selectText="Choose some things..."
+         // colors = {"pink"}
+          showDropDowns={true}
+          readOnlyHeadings={true}
+          onSelectedItemsChange={this.onSelectedItemsChange}
+          selectedItems={this.state.selectedItems}
+        />
+
           <Text style={styles.diningHeader}> Dining Locations: </Text>
            {/* Got this from https://reactnative.dev/docs/switch */}
         <Switch
