@@ -4,6 +4,7 @@ import { Text, StyleSheet, View, ImageBackground, Switch } from "react-native";
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import Wallet from "../components/ButtonWallet";
+import Settings from "../components/SettingsButton";
 import Friends from "../components/FriendsButton";
 import LogOut from "../components/LogoutButton";
 import Profile from "../components/ProfileButton";
@@ -124,8 +125,8 @@ const styles = StyleSheet.create({
           <Text style={styles.diningHeader}> Dining Locations: </Text>
            {/* Got this from https://reactnative.dev/docs/switch */}
         <Switch
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={this.state.switchValue1 ? "#f5dd4b" : "#f4f3f4"}
+          trackColor={{ false: "#767577", true: "#6a5cff" }}
+          thumbColor={this.state.switchValue1 ? "#f4f3f4" : "#f4f3f4"}
           ios_backgroundColor="#3e3e3e"
           value={this.state.switchValue1}
           onValueChange = {this._switchState1}
@@ -135,8 +136,8 @@ const styles = StyleSheet.create({
         <View style={styles.diningLocationsContainter2}>
           <Text style={styles.diningHeader}> Show Balance: </Text>
         <Switch
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={this.state.switchValue2 ? "#f5dd4b" : "#f4f3f4"}
+          trackColor={{ false: "#767577", true: "#6a5cff" }}
+          thumbColor={this.state.switchValue2 ? "#f4f3f4" : "#f4f3f4"}
           ios_backgroundColor="#3e3e3e"
           value={this.state.switchValue2}
           onValueChange = {this._switchState2}
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
           {/* button to trading screen */}
           <View style = {styles.walletContainer}>
             <Profile 
-              onProfilePress = {() => navigation.navigate("MyProfileScreen")}
+              onProfilePress = {() => this.props.navigation.navigate("MyProfileScreen")}
               outerComponentStyle = {styles.leftBtn} 
               innerComponentStyle = {styles.icon1} />
           </View>
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
           {/* button friends search bar */}
           <View style = {styles.friendContainer}>
             <Friends
-              onFriendPress = {() => navigation.navigate("FriendScreen")}
+              onFriendPress = {() => this.props.navigation.navigate("FriendScreen")}
               outerComponentStyle = {styles.centerBtn}
               innerComponentStyle = {styles.icon2} />
           </View>
@@ -165,8 +166,8 @@ const styles = StyleSheet.create({
           {/* button to edit his dining preferences,
             trading preferences, etc. */}
           <View style = {styles.settingsContainer}>
-            <Wallet
-              onWalletPress = {() => navigation.navigate("TradingScreen")}
+            <Settings
+              onWalletPress = {() => this.props.navigation.navigate("TradingScreen")}
               outerComponentStyle = {styles.rightBtn}
               innerComponentStyle = {styles.icon3} />     
           </View>       

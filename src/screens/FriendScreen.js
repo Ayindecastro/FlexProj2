@@ -1,7 +1,8 @@
 import React, { memo } from "react";
 import { Text, StyleSheet, View, ImageBackground} from "react-native";
 import Profile from "../components/ProfileButton";
-import Wallet from "../components/ButtonWallet";
+//import Wallet from "../components/ButtonWallet";
+import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
 import TopBar from "../components/TopBar";
 import { screenWidth, screenHeight } from "../core/dimensions";
@@ -36,7 +37,7 @@ const TradingScreen = ({ navigation }) => (
 
       {/* button friends search bar */}
       <View style = {styles.friendContainer}>
-        <Wallet
+        <Friends
           onWalletPress = {() => navigation.navigate("TradingScreen")}
           outerComponentStyle = {styles.centerBtn}
           innerComponentStyle = {styles.icon2} />

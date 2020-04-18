@@ -3,7 +3,7 @@ import { Button, Image, View, Text, StyleSheet, ImageBackground} from 'react-nat
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
-import Wallet from "../components/ButtonWallet";
+import Profile from "../components/ProfileButton";
 import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
 import LogOut from "../components/LogoutButton";
@@ -191,7 +191,7 @@ export default class ImagePickerExample extends React.Component {
 
         {/* button to trading screen */}
         <View style = {styles.walletContainer}>
-        <Wallet  
+        <Profile  
             onWalletPress = {() => this.props.navigation.navigate("TradingScreen")}
             outerComponentStyle = {styles.leftBtn} 
             innerComponentStyle = {styles.icon1} />
