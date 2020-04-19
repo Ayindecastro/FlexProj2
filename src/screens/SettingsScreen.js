@@ -1,13 +1,8 @@
-import React, { useState } from "react";
-import {Component} from "react";
-import ReactDom from "react-dom";
+import React from "react";
 import { Text, StyleSheet, View, ImageBackground, Switch } from "react-native";
-import Constants from 'expo-constants';
-import * as Permissions from 'expo-permissions';
 import Wallet from "../components/ButtonWallet";
 import Settings from "../components/SettingsButton";
 import Friends from "../components/FriendsButton";
-import LogOut from "../components/LogoutButton";
 import Profile from "../components/ProfileButton";
 import TopBar from "../components/TopBar";
 import {screenWidth, screenHeight } from "../core/dimensions";
@@ -68,7 +63,10 @@ const styles = StyleSheet.create({
     color: "#000",
     opacity: 0.5,
   },
-  centerBtn: {
+  centerBtn1: {
+    padding: 8,
+  },
+  centerBtn2: {
     padding: 8,
   },
   icon2: {
@@ -84,18 +82,28 @@ const styles = StyleSheet.create({
     color: "#000",
     opacity: 0.5,
   },
+  icon4: {
+    fontSize: 28,
+    color: "#000",
+    opacity: 0.5,
+  },
+  homeContainer: {
+    width: screenWidth/4,
+    alignItems: 'center',
+    backgroundColor: "#6a5cff",
+  },
   walletContainer: {
-    width: screenWidth/3,
+    width: screenWidth/4,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
   friendContainer: {
-    width: screenWidth/3,
+    width: screenWidth/4,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
   settingsContainer: {
-    width: screenWidth/3,
+    width: screenWidth/4,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
@@ -146,9 +154,9 @@ const items = [
     }
 
     
-      state = {
-        selectedItems: [],
-      };
+    state = {
+      selectedItems: [],
+    };
     
     onSelectedItemsChange = (selectedItems) => {
       this.setState({ selectedItems });
@@ -166,13 +174,6 @@ const items = [
         <ImageBackground
           source={require("../assets/blackbackground.png")}
           style={styles.cardItemImagePlace}/>
-
-
-      
-      
-      
-    
-
 
         <View style={styles.diningLocationsContainter}>
 
@@ -214,29 +215,37 @@ const items = [
         {/* buttons for lower panel*/}
         <View style={styles.buttonGroup}>
 
+        {/* button to my profile screen */}
+          <View style = {styles.homeContainer}>
+            <Profile  
+                onProfilePress = {() => this.props.navigation.navigate("MyProfileScreen")}
+                outerComponentStyle = {styles.leftBtn} 
+                innerComponentStyle = {styles.icon1} />
+            </View>
+
           {/* button to trading screen */}
           <View style = {styles.walletContainer}>
-            <Profile 
-              onProfilePress = {() => this.props.navigation.navigate("MyProfileScreen")}
-              outerComponentStyle = {styles.leftBtn} 
-              innerComponentStyle = {styles.icon1} />
-          </View>
+            <Wallet
+                onWalletPress = {() => this.props.navigation.navigate("TradingScreen")}
+                outerComponentStyle = {styles.centerBtn1} 
+                innerComponentStyle = {styles.icon2} />
+            </View>
 
           {/* button friends search bar */}
           <View style = {styles.friendContainer}>
-            <Friends
+          <Friends
               onFriendPress = {() => this.props.navigation.navigate("FriendScreen")}
-              outerComponentStyle = {styles.centerBtn}
-              innerComponentStyle = {styles.icon2} />
+              outerComponentStyle = {styles.centerBtn2}
+              innerComponentStyle = {styles.icon3} />
           </View>
 
           {/* button to edit his dining preferences,
-            trading preferences, etc. */}
+          trading preferences, etc. */}
           <View style = {styles.settingsContainer}>
-            <Settings
-              onWalletPress = {() => this.props.navigation.navigate("TradingScreen")}
+          <Settings
+              onSettingsPress = {() => this.props.navigation.navigate("SettingsScreen")}
               outerComponentStyle = {styles.rightBtn}
-              innerComponentStyle = {styles.icon3} />     
+              innerComponentStyle = {styles.icon4} />     
           </View>       
         </View>
 

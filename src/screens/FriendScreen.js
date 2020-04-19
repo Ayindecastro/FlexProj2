@@ -1,7 +1,7 @@
 import React, { memo } from "react";
-import { Text, StyleSheet, View, ImageBackground} from "react-native";
+import { StyleSheet, View, ImageBackground} from "react-native";
 import Profile from "../components/ProfileButton";
-//import Wallet from "../components/ButtonWallet";
+import Wallet from "../components/ButtonWallet";
 import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
 import TopBar from "../components/TopBar";
@@ -27,31 +27,39 @@ const TradingScreen = ({ navigation }) => (
     {/* buttons for lower panel*/}
     <View style={styles.buttonGroup}>
 
-      {/* button to trading screen */}
-      <View style = {styles.walletContainer}>
-        <Profile 
-          onProfilePress = {() => navigation.navigate("MyProfileScreen")}
-          outerComponentStyle = {styles.leftBtn} 
-          innerComponentStyle = {styles.icon1} />
-      </View>
+        {/* button to my profile screen */}
+        <View style = {styles.homeContainer}>
+          <Profile  
+              onProfilePress = {() => navigation.navigate("MyProfileScreen")}
+              outerComponentStyle = {styles.leftBtn} 
+              innerComponentStyle = {styles.icon1} />
+          </View>
 
-      {/* button friends search bar */}
-      <View style = {styles.friendContainer}>
-        <Friends
-          onWalletPress = {() => navigation.navigate("TradingScreen")}
-          outerComponentStyle = {styles.centerBtn}
-          innerComponentStyle = {styles.icon2} />
-      </View>
+          {/* button to trading screen */}
+          <View style = {styles.walletContainer}>
+            <Wallet
+                onWalletPress = {() => navigation.navigate("TradingScreen")}
+                outerComponentStyle = {styles.centerBtn1} 
+                innerComponentStyle = {styles.icon2} />
+          </View>
 
-      {/* button to edit his dining preferences,
-        trading preferences, etc. */}
-      <View style = {styles.settingsContainer}>
-        <Settings
-          onSettingsPress = {() => navigation.navigate("SettingsScreen")}
-          outerComponentStyle = {styles.rightBtn}
-          innerComponentStyle = {styles.icon3} />     
-      </View>       
-    </View>
+          {/* button friends search bar */}
+          <View style = {styles.friendContainer}>
+            <Friends
+                onFriendPress = {() => navigation.navigate("FriendScreen")}
+                outerComponentStyle = {styles.centerBtn2}
+                innerComponentStyle = {styles.icon3} />
+          </View>
+
+          {/* button to edit his dining preferences,
+          trading preferences, etc. */}
+          <View style = {styles.settingsContainer}>
+            <Settings
+                onSettingsPress = {() => navigation.navigate("SettingsScreen")}
+                outerComponentStyle = {styles.rightBtn}
+                innerComponentStyle = {styles.icon4} />     
+          </View>       
+        </View>
 
       {/* top bar - white to allow user to see time/rest of bar */}
       <TopBar/> 
@@ -87,7 +95,10 @@ const styles = StyleSheet.create({
     color: "#000",
     opacity: 0.5,
   },
-  centerBtn: {
+  centerBtn1: {
+    padding: 8,
+  },
+  centerBtn2: {
     padding: 8,
   },
   icon2: {
@@ -103,21 +114,31 @@ const styles = StyleSheet.create({
     color: "#000",
     opacity: 0.5,
   },
+  icon4: {
+    fontSize: 28,
+    color: "#000",
+    opacity: 0.5,
+  },
+  homeContainer: {
+    width: screenWidth/4,
+    alignItems: 'center',
+    backgroundColor: "#6a5cff",
+  },
   walletContainer: {
-    width: screenWidth/3,
+    width: screenWidth/4,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
   friendContainer: {
-    width: screenWidth/3,
+    width: screenWidth/4,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
   settingsContainer: {
-    width: screenWidth/3,
+    width: screenWidth/4,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
-  },  
+  },
 });
 
 export default memo(TradingScreen);

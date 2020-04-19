@@ -6,18 +6,12 @@ import * as Permissions from 'expo-permissions';
 import Profile from "../components/ProfileButton";
 import Friends from "../components/FriendsButton";
 import Settings from "../components/SettingsButton";
+import Wallet from "../components/ButtonWallet";
 import LogOut from "../components/LogoutButton";
 import TopBar from "../components/TopBar";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { screenWidth, screenHeight } from "../core/dimensions";
-// import styles from '../assets/style';
-// import { memo } from "react";
-
-
-console.log(firebase)
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -118,7 +112,10 @@ const styles = StyleSheet.create({
     color: "#000",
     opacity: 0.5,
   },
-  centerBtn: {
+  centerBtn1: {
+    padding: 8,
+  },
+  centerBtn2: {
     padding: 8,
   },
   icon2: {
@@ -134,18 +131,28 @@ const styles = StyleSheet.create({
     color: "#000",
     opacity: 0.5,
   },
+  icon4: {
+    fontSize: 28,
+    color: "#000",
+    opacity: 0.5,
+  },
+  homeContainer: {
+    width: screenWidth/4,
+    alignItems: 'center',
+    backgroundColor: "#6a5cff",
+  },
   walletContainer: {
-    width: screenWidth/3,
+    width: screenWidth/4,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
   friendContainer: {
-    width: screenWidth/3,
+    width: screenWidth/4,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
   settingsContainer: {
-    width: screenWidth/3,
+    width: screenWidth/4,
     alignItems: 'center',
     backgroundColor: "#6a5cff",
   },
@@ -189,20 +196,28 @@ export default class ImagePickerExample extends React.Component {
     {/* buttons for lower panel*/}
     <View style={styles.buttonGroup}>
 
-        {/* button to trading screen */}
-        <View style = {styles.walletContainer}>
+        {/* button to my profile screen */}
+        <View style = {styles.homeContainer}>
         <Profile  
-            onWalletPress = {() => this.props.navigation.navigate("TradingScreen")}
+            onProfilePress = {() => this.props.navigation.navigate("MyProfileScreen")}
             outerComponentStyle = {styles.leftBtn} 
             innerComponentStyle = {styles.icon1} />
+        </View>
+
+      {/* button to trading screen */}
+        <View style = {styles.walletContainer}>
+        <Wallet
+            onWalletPress = {() => this.props.navigation.navigate("TradingScreen")}
+            outerComponentStyle = {styles.centerBtn1} 
+            innerComponentStyle = {styles.icon2} />
         </View>
 
         {/* button friends search bar */}
         <View style = {styles.friendContainer}>
         <Friends
             onFriendPress = {() => this.props.navigation.navigate("FriendScreen")}
-            outerComponentStyle = {styles.centerBtn}
-            innerComponentStyle = {styles.icon2} />
+            outerComponentStyle = {styles.centerBtn2}
+            innerComponentStyle = {styles.icon3} />
         </View>
 
         {/* button to edit his dining preferences,
@@ -211,7 +226,7 @@ export default class ImagePickerExample extends React.Component {
         <Settings
             onSettingsPress = {() => this.props.navigation.navigate("SettingsScreen")}
             outerComponentStyle = {styles.rightBtn}
-            innerComponentStyle = {styles.icon3} />     
+            innerComponentStyle = {styles.icon4} />     
         </View>       
     </View>
 
