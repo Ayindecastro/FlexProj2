@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 12172,
-  "expoServerNgrokUrl": "https://88-95u.anonymous.flexproj2.exp.direct",
-  "packagerNgrokUrl": "https://packager.88-95u.anonymous.flexproj2.exp.direct",
-  "ngrokPid": 12100,
+  "packagerPid": 12720,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": 19006
 }
