@@ -2,7 +2,7 @@ import * as firebase from 'firebase';
 import 'firebase/firestore';
 
 const config = {
-    apiKey: "AIzaSyCeWi5U5c4U_sDQz08GeHKNIhmcLSkq0ZY",
+    apiKey: "AIzaSyCAsrxGfJ3bpR2A0RPbDPDmDrKs_h-KIPY",
     authDomain: "flex-78875.firebaseapp.com",
     databaseURL: "https://flex-78875.firebaseio.com",
     projectId: "flex-78875",
