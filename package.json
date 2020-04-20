@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^7.1.0",
+    "firestore-export-import": "^0.5.0",
     "prettier": "^1.18.2"
   },
   "private": true
