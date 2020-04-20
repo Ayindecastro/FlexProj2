@@ -1,5 +1,7 @@
-// Replace with your own firebase config!
-export const FIREBASE_CONFIG = {
+import * as firebase from 'firebase';
+import 'firebase/firestore';
+
+const config = {
     apiKey: "AIzaSyCeWi5U5c4U_sDQz08GeHKNIhmcLSkq0ZY",
     authDomain: "flex-78875.firebaseapp.com",
     databaseURL: "https://flex-78875.firebaseio.com",
@@ -9,3 +11,9 @@ export const FIREBASE_CONFIG = {
     appId: "1:1018037864183:web:83819233ded476a7a635f2",
     measurementId: "G-2TV894VHPV"
 };
+
+// Initialize Firebase
+firebase.initializeApp(config);
+const db = firebase.firestore();
+
+export default config

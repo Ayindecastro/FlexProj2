@@ -4,10 +4,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import Background from "../components/Background";
 import { theme } from "../core/theme";
-import { FIREBASE_CONFIG } from "../core/config";
-
-// Initialize Firebase
-firebase.initializeApp(FIREBASE_CONFIG);
+import config from "../core/config"
 
 const AuthLoadingScreen = ({ navigation }) => {
   firebase.auth().onAuthStateChanged(user => {
