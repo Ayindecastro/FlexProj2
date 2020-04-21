@@ -177,7 +177,7 @@ const items = [
 
         <View style={styles.diningLocationsContainter}>
 
- {/* https://github.com/renrizzolo/react-native-sectioned-multi-select */}
+        {/* https://github.com/renrizzolo/react-native-sectioned-multi-select */}
         <SectionedMultiSelect
           items={items}
           uniqueKey="id"
@@ -190,8 +190,8 @@ const items = [
           selectedItems={this.state.selectedItems}
         />
 
-          <Text style={styles.diningHeader}> Dining Locations: </Text>
-           {/* Got this from https://reactnative.dev/docs/switch */}
+        <Text style={styles.diningHeader}> Dining Locations: </Text>
+        {/* Got this from https://reactnative.dev/docs/switch */}
         <Switch
           trackColor={{ false: "#767577", true: "#6a5cff" }}
           thumbColor={this.state.switchValue1 ? "#f4f3f4" : "#f4f3f4"}

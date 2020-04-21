@@ -231,9 +231,6 @@ export default class ImagePickerExample extends React.Component {
     </View>
 
         {/* this is the profile picture - need to figure out how to import*/}
-        
-
-
         <View style = {styles.containerPic}>
             <ImageBackground 
                 source = {{ uri: image }} 
@@ -294,6 +291,7 @@ export default class ImagePickerExample extends React.Component {
     this.getPermissionAsync();
   }
 
+  // gets permission from device to use photos
   getPermissionAsync = async () => {
     if (Constants.platform.ios) {
       const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -303,6 +301,7 @@ export default class ImagePickerExample extends React.Component {
     }
   };
 
+  // allows for picking of image
   _pickImage = async () => {
     try {
       let result = await ImagePicker.launchImageLibraryAsync({
