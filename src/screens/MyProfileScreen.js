@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   containerPic: {
-    backgroundColor: '#151716',
+    backgroundColor: '#c9b2ba',
     position: "absolute",
     alignItems: 'center',
     justifyContent: 'center',
@@ -55,17 +55,17 @@ const styles = StyleSheet.create({
     marginVertical: 425,
     width: 325,
     height: screenHeight / 8,
-    backgroundColor: "#151716",
+    backgroundColor: "#c9b2ba",
   },
   flexContainer: {
-    backgroundColor: "#151716",
+    backgroundColor: "#c9b2ba",
     borderWidth: 2,
-    borderColor: '#151716',
+    borderColor: '#c9b2ba',
   },
   swipeContainer: {
-    backgroundColor: "#151716",
+    backgroundColor: "#c9b2ba",
     borderWidth: 2,
-    borderColor: '#151716',
+    borderColor: '#c9b2ba',
   },
   schoolFont: {
     fontSize: 24,
@@ -73,11 +73,11 @@ const styles = StyleSheet.create({
   },
   flexFont: {
     fontSize: 24,
-    color: 'white',
+    color: 'black',
   },
   bufferFont: {
     fontSize: 24,
-    color: '#151716',
+    color: '#c9b2ba',
   },
   spaceFont: {
     fontSize: 24,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   swipeFont: {
     fontSize: 24,
-    color: 'white',
+    color: 'black',
   },
   profilePic: {
     width: 200,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   editButtonView: {
     position: "absolute",
-    backgroundColor: "#151716",
+    backgroundColor: "#c9b2ba",
     width: 200,
     bottom: 0,
   },
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 8,
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
     width: screenWidth,
   },
   leftBtn: {
@@ -139,22 +139,22 @@ const styles = StyleSheet.create({
   homeContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   walletContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   friendContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   settingsContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   thumbnail: {
     width: 300,
@@ -189,7 +189,7 @@ export default class ImagePickerExample extends React.Component {
 
     {/* background image*/}
     <ImageBackground
-        source={require("../assets/blackbackground.png")}
+        source={require("../assets/darkbackground.png")}
         style={styles.cardItemImagePlace}/>
 
     
