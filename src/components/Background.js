@@ -7,7 +7,7 @@ import {
 
 const Background = ({ children }) => (
   <ImageBackground
-    source={require("../assets/sampleImage.png")}
+    source={require("../assets/theBackground.png")}
     resizeMode="cover"
     style={styles.background}
   >

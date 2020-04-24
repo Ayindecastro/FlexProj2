@@ -7,6 +7,8 @@ export const theme = {
     primary: "#fff",
     secondary: "#fff",
     error: "#f13a59",
+    containedNew: '#c9b2ba',
+    darkerColor: '#c48b9f',
     success: "#00B386"
   }
 };

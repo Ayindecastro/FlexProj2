@@ -96,7 +96,7 @@ const RegisterScreen = ({ navigation }) => {
 
       <Button
         loading={loading}
-        mode="contained"
+        mode="outlinedNew"
         onPress={_onSignUpPressed}
         style={styles.button}
       >
