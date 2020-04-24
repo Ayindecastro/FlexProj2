@@ -7,13 +7,19 @@ const Button = ({ mode, style, children, ...props }) => (
   <PaperButton
     style={[
       styles.button,
-      mode === "outlined" && { backgroundColor: theme.colors.surface },
+      mode === "containedNew" && { backgroundColor: theme.colors.surface},
+      style
+    ]}
+    style={[
+      styles.button,
+      mode === "outlinedNew" && { backgroundColor: theme.colors.darkerColor},
       style
     ]}
     labelStyle={[
       styles.text,
       mode === "contained" && { color: theme.colors.surface }
     ]}
+   
     mode={mode}
     {...props}
   >

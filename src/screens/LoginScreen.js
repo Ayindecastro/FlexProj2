@@ -83,7 +83,7 @@ const LoginScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <Button loading={loading} mode="contained" onPress={_onLoginPressed}>
+      <Button loading={loading} mode="outlinedNew" onPress={_onLoginPressed}>
         Login
       </Button>
 

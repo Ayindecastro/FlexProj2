@@ -20,7 +20,7 @@ const TradingScreen = ({ navigation }) => (
 
     {/* background image*/}
     <ImageBackground
-      source={require("../assets/sampleImage.png")}
+       source={require("../assets/darkbackground.png")}
       style={styles.cardItemImagePlace}/>
 
     
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 8,
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
     width: screenWidth,
   },
   leftBtn: {
@@ -122,22 +122,22 @@ const styles = StyleSheet.create({
   homeContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   walletContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   friendContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   settingsContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   
 });

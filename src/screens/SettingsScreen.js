@@ -7,6 +7,7 @@ import Profile from "../components/ProfileButton";
 import TopBar from "../components/TopBar";
 import {screenWidth, screenHeight } from "../core/dimensions";
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import { Title } from "react-native-paper";
 // const topBarH = (18/screenHeight * 100);
 // console.log(topBarH);
 
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     marginVertical: 125,
     width: 200,
     height: screenHeight / 8,
-    backgroundColor: "#151716",
+    backgroundColor: "#c9b2ba",
   },
   diningLocationsContainter2: {
     alignItems: "center",
@@ -30,11 +31,11 @@ const styles = StyleSheet.create({
     marginVertical: 325,
     width: 200,
     height: screenHeight / 8,
-    backgroundColor: "#151716",
+    backgroundColor: "#c9b2ba",
   },
   diningHeader: {
     fontSize: 20,
-    color: 'white',
+    color: 'black',
   },
   container: {
     width: screenWidth,
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 8,
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
     width: screenWidth,
   },
   leftBtn: {
@@ -90,24 +91,43 @@ const styles = StyleSheet.create({
   homeContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   walletContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   friendContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
   settingsContainer: {
     width: screenWidth/4,
     alignItems: 'center',
-    backgroundColor: "#6a5cff",
+    backgroundColor: "#c48b9f",
   },
-
+  sectionContainter: {
+    backgroundColor: "#c9b2ba",
+    borderWidth: 2,
+    borderColor: '#c9b2ba',
+  },
+  textSelectionContainer: {
+    backgroundColor: "#c9b2ba",
+    borderWidth: 2,
+    borderColor: '#c9b2ba',
+  },
+  bufferContainer: {
+    backgroundColor: "#c9b2ba",
+    borderWidth: 2,
+    borderColor: '#c9b2ba',
+    
+  },
+  bufferFont: {
+    fontSize: 24,
+    color: '#c9b2ba',
+  },
   
 });
 
@@ -121,6 +141,7 @@ const items = [
       {
         name: 'Collins',
         id: 10,
+        color: 'black',
       },
       {
         name: 'Malott',
@@ -146,7 +167,13 @@ const items = [
   },
 ];
 
-
+const colorSettings = {
+  primary: '#c48b9f',
+  cancel: '#ba6b6c',
+  //disabled: '#ba6b6c',
+  chipColor: '#fff',
+  
+}
   export default class ourSettingScreen extends React.Component {
     state = {
       switchValue1: false,
@@ -172,39 +199,58 @@ const items = [
 
         {/* background image*/}
         <ImageBackground
-          source={require("../assets/blackbackground.png")}
+            source={require("../assets/darkbackground.png")}
           style={styles.cardItemImagePlace}/>
 
         <View style={styles.diningLocationsContainter}>
 
+        
         {/* https://github.com/renrizzolo/react-native-sectioned-multi-select */}
+
+    
+
+       
+        
+        <Title>Dining Hall Preferences:</Title>
         <SectionedMultiSelect
           items={items}
+        
+          colors = {colorSettings}
           uniqueKey="id"
           subKey="children"
-          selectText="Choose some things..."
-         // colors = {"pink"}
-          showDropDowns={true}
+          showCancelButton = {true}
+          hideSearch = {true}
+         modalWithSafeAreaView = {true}
+         modalWithTouchable = {true}
+          selectText="Preferences:"
+          //alwaysShowSelectText = {true}
+         
+          showDropDowns={false}
           readOnlyHeadings={true}
           onSelectedItemsChange={this.onSelectedItemsChange}
           selectedItems={this.state.selectedItems}
         />
+       
+    
+    
 
-        <Text style={styles.diningHeader}> Dining Locations: </Text>
-        {/* Got this from https://reactnative.dev/docs/switch */}
+       
+
+       
+        </View> 
+
+        <View style={styles.diningLocationsContainter2}>
+        <Text style={styles.diningHeader}> FLEX Balance </Text>
         <Switch
-          trackColor={{ false: "#767577", true: "#6a5cff" }}
+          trackColor={{ false: "#767577", true: "#c48b9f" }}
           thumbColor={this.state.switchValue1 ? "#f4f3f4" : "#f4f3f4"}
           ios_backgroundColor="#3e3e3e"
           value={this.state.switchValue1}
           onValueChange = {this._switchState1}
         />
-        </View> 
-
-        <View style={styles.diningLocationsContainter2}>
-          <Text style={styles.diningHeader}> Show Balance: </Text>
+          <Text style={styles.diningHeader}> Swipes Balance: </Text>
         <Switch
-          trackColor={{ false: "#767577", true: "#6a5cff" }}
+          trackColor={{ false: "#767577", true: "#c48b9f" }}
           thumbColor={this.state.switchValue2 ? "#f4f3f4" : "#f4f3f4"}
           ios_backgroundColor="#3e3e3e"
           value={this.state.switchValue2}

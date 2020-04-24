@@ -1,24 +1,35 @@
 import React, { memo } from "react";
 import Background from "../components/Background";
+import {StyleSheet} from 'react-native';
 import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import Paragraph from "../components/Paragraph";
-import TopBar from "../components/TopBar";
+import TopBarTwo from "../components/TopBarTwo";
+import Constants from 'expo-constants';
+
+const styles = StyleSheet.create({
+icon1: {
+  color: "#000",
+},
+});
 
 const HomeScreen = ({ navigation }) => (
   <Background>
-    <TopBar/>
+    <TopBarTwo/>
     <Logo />
-    <Header>FLEX Trade</Header>
+    <Header style = {styles.icon1}>FLEX Trade</Header>
 
     <Paragraph>
      5C Food Marketplace
     </Paragraph>
-    <Button mode="contained" onPress={() => navigation.navigate("LoginScreen")}>
+    {/* <Button mode="containedNew" onPress={() => navigation.navigate("LoginScreen")}>
+      Login
+    </Button> */}
+    <Button mode="outlinedNew" onPress={() => navigation.navigate("LoginScreen")}>
       Login
     </Button>
-    <Button mode="outline" onPress={() => navigation.navigate("RegisterScreen")}>
+    <Button mode="outlinedNew" onPress={() => navigation.navigate("RegisterScreen")}>
       Sign Up
     </Button>
     {/* <Button mode="outline" onPress={() => navigation.navigate("MyProfileScreen")}>
