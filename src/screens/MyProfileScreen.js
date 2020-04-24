@@ -301,7 +301,7 @@ export default class ImagePickerExample extends React.Component {
     }
   };
 
-  // allows for picking of image
+  // allows for picking of image in profile picture component
   _pickImage = async () => {
     try {
       let result = await ImagePicker.launchImageLibraryAsync({
