@@ -11,6 +11,14 @@ import { emailValidator, passwordValidator } from "../core/utils";
 import { loginUser } from "../api/auth-api";
 import Toast from "../components/Toast";
 import TopBar from "../components/TopBar";
+import firebase from "firebase/app";
+import "firebase/auth";
+import 'firebase/firestore';
+import config from "../core/config"
+
+// intializaing database
+const db = firebase.firestore();
+
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState({ value: "", error: "" });

@@ -163,6 +163,7 @@ const styles = StyleSheet.create({
   }, 
 });
 
+
 export default class ImagePickerExample extends React.Component {
   state = {
     image: null,
