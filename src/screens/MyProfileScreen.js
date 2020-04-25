@@ -35,10 +35,58 @@ const styles = StyleSheet.create({
     height: 225,
     marginVertical: 150,    
   },
-  school: {
+  cmc: {
     // todo - change color and name
     // based on school
     backgroundColor: 'maroon',
+    position: "absolute",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    width: 100,
+    height: 30,
+    marginVertical: 370,    
+  },
+  scripps: {
+    // todo - change color and name
+    // based on school
+    backgroundColor: 'green',
+    position: "absolute",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    width: 100,
+    height: 30,
+    marginVertical: 370,    
+  },
+  mudd: {
+    // todo - change color and name
+    // based on school
+    backgroundColor: 'black',
+    position: "absolute",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    width: 100,
+    height: 30,
+    marginVertical: 370,    
+  },
+  pomona: {
+    // todo - change color and name
+    // based on school
+    backgroundColor: 'blue',
+    position: "absolute",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    width: 100,
+    height: 30,
+    marginVertical: 370,    
+  },
+  pitzer: {
+    // todo - change color and name
+    // based on school
+    backgroundColor: 'orange',
     position: "absolute",
     alignItems: 'center',
     justifyContent: 'center',
@@ -67,10 +115,27 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#c9b2ba',
   },
-  schoolFont: {
+  muddFont: {
+    fontSize: 24,
+    color: 'orange',
+  },
+  cmcFont: {
     fontSize: 24,
     color: 'white',
   },
+  pomonaFont: {
+    fontSize: 24,
+    color: 'orange',
+  },
+  pitzerFont: {
+    fontSize: 24,
+    color: 'white',
+  },
+  scrippsFont: {
+    fontSize: 24,
+    color: 'white',
+  },
+
   flexFont: {
     fontSize: 24,
     color: 'black',
@@ -245,9 +310,9 @@ export default class ImagePickerExample extends React.Component {
             </ImageBackground>
         </View>
 
-        <View style = {styles.school}>
-        <Text style = {styles.schoolFont}>
-            CMC 
+        <View style = {styles.mudd}>
+        <Text style = {styles.muddFont}>
+            Mudd
         </Text>
         </View>
 

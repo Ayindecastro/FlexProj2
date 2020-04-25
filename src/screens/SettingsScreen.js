@@ -18,7 +18,47 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: 'absolute',
     flexDirection: 'row',
-    marginVertical: 125,
+    marginVertical: 350,
+    width: 400,
+    height: screenHeight / 8,
+    backgroundColor: "#c9b2ba",
+  },
+  schoolTitleContainter: {
+    alignItems: "center",
+    justifyContent: "center",
+    position: 'absolute',
+    flexDirection: 'row',
+    marginVertical: 75,
+    width: 100,
+    height: screenHeight / 8,
+    backgroundColor: "#c9b2ba",
+  },
+  schoolContainter: {
+    alignItems: "center",
+    justifyContent: "center",
+    position: 'absolute',
+    flexDirection: 'row',
+    marginVertical: 150,
+    width: 100,
+    height: screenHeight / 8,
+    backgroundColor: "#c9b2ba",
+  },
+  diningTitleContainter: {
+    alignItems: "center",
+    justifyContent: "center",
+    position: 'absolute',
+    flexDirection: 'row',
+    marginVertical: 275,
+    width: 300,
+    height: screenHeight / 8,
+    backgroundColor: "#c9b2ba",
+  },
+  diningHeader: {
+    alignItems: "center",
+    justifyContent: "center",
+    position: 'absolute',
+    flexDirection: 'row',
+    marginVertical: 5,
     width: 200,
     height: screenHeight / 8,
     backgroundColor: "#c9b2ba",
@@ -28,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: 'absolute',
     flexDirection: 'row',
-    marginVertical: 325,
+    marginVertical: 525,
     width: 200,
     height: screenHeight / 8,
     backgroundColor: "#c9b2ba",
@@ -167,6 +207,37 @@ const items = [
   },
 ];
 
+const itemsTwo = [
+  // this is the parent or 'item'
+  {
+    name: 'School',
+    idTwo: 0,
+    // these are the children or 'sub items'
+    childrenTwo: [
+      {
+        name: 'Claremont McKenna',
+        idTwo: 11,
+
+      },
+      {
+        name: 'Scripps',
+        idTwo: 18,
+      },
+      {
+        name: 'Pitzer',
+        idTwo: 21,
+      },
+      {
+        name: 'Harvey Mudd',
+        idTwo: 22,
+      },
+      {
+        name: 'Pomona',
+        idTwo: 24,
+      },
+    ],
+  },
+];2
 const colorSettings = {
   primary: '#c48b9f',
   cancel: '#ba6b6c',
@@ -183,10 +254,14 @@ const colorSettings = {
     
     state = {
       selectedItems: [],
+      selectedItemsTwo: [],
     };
     
     onSelectedItemsChange = (selectedItems) => {
       this.setState({ selectedItems });
+    };
+    onSelectedItemsChangeTwo = (selectedItemsTwo) => {
+      this.setState({ selectedItemsTwo });
     };
     render() {
     
@@ -202,19 +277,47 @@ const colorSettings = {
             source={require("../assets/darkbackground.png")}
           style={styles.cardItemImagePlace}/>
 
-        <View style={styles.diningLocationsContainter}>
 
+      <View style={styles.schoolTitleContainter}>
+      <Title>School:</Title>
+
+      </View>
+        
+        <View style={styles.schoolContainter}>
+        
+
+        <SectionedMultiSelect
+          items={itemsTwo}
+          colors = {colorSettings}
+          uniqueKey="idTwo"
+          subKey="childrenTwo"
+          showCancelButton = {true}
+          hideSearch = {true}
+         modalWithSafeAreaView = {true}
+         //single = {true}
+         modalWithTouchable = {true}
+          selectText="Preferences:"
+          alwaysShowSelectText = {true}
+         //showChips = {true}
+          showDropDowns={false}
+          readOnlyHeadings={true}
+          onSelectedItemsChange={this.onSelectedItemsChangeTwo}
+          selectedItems={this.state.selectedItemsTwo}
+        /> 
+        </View>
+
+        <View style={styles.diningTitleContainter}>
+
+        <Title>Dining Hall Preferences:</Title>
+        </View>
+
+        <View style={styles.diningLocationsContainter}>
         
         {/* https://github.com/renrizzolo/react-native-sectioned-multi-select */}
 
-    
-
-       
-        
-        <Title>Dining Hall Preferences:</Title>
+  
         <SectionedMultiSelect
-          items={items}
-        
+          items={items}  
           colors = {colorSettings}
           uniqueKey="id"
           subKey="children"
@@ -230,13 +333,7 @@ const colorSettings = {
           onSelectedItemsChange={this.onSelectedItemsChange}
           selectedItems={this.state.selectedItems}
         />
-       
-    
-    
-
-       
-
-       
+           
         </View> 
 
         <View style={styles.diningLocationsContainter2}>
