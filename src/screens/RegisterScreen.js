@@ -19,8 +19,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import 'firebase/firestore';
 import config from "../core/config";
-
-
+// import * as admin from 'firebase-admin';
 
 
 // intializaing database
@@ -95,7 +94,10 @@ const RegisterScreen = ({ navigation }) => {
       password:  password.value,
     }).then((ref) => {
       console.log("Added document with ID: " + ref.id);
-    });
+    }).catch(function(error) {
+        console.error("User data did not write to database", error);
+        throw error;
+      });
 
     setLoading(false);
   };
