@@ -15,6 +15,44 @@ import {
 import { signInUser } from "../api/auth-api";
 import Toast from "../components/Toast";
 import TopBar from "../components/TopBar";
+import firebase from "firebase/app";
+import "firebase/auth";
+import 'firebase/firestore';
+import config from "../core/config";
+
+
+
+
+// intializaing database
+const db = firebase.firestore();
+//const form = document.querySelector('#login-form');
+//document.querySelector('#login-form');
+
+// saving data 
+// listen for a submit even on the form
+// form.addEventListener('submit', (event) => {
+//   // prevents default from 
+//   event.preventDefault();
+//   // get a reference to collection
+//   db.collection("users").add({
+//     name: form.name.value,
+//     email: form.email.value,
+//     password:  form.password.value,
+//   });
+//   form.email.value = '';
+//   form.name.value = '';
+//   form.password.value = '';
+// });
+
+// function user(doc) {
+//   let userEmail = document.createElement('span');
+//   let password = document.createElement('span');
+
+//   userEmail.textContent = doc.data().email;
+//   password.textContent = doc.data().password;
+// }
+
+
 
 const RegisterScreen = ({ navigation }) => {
   const [name, setName] = useState({ value: "", error: "" });
@@ -49,6 +87,16 @@ const RegisterScreen = ({ navigation }) => {
       setError(response.error);
     }
 
+    {/* if sign-up works then add the user's name, email,
+    and password to the database */}
+    db.collection("users").add({
+      name: name.value,
+      email: email.value,
+      password:  password.value,
+    }).then((ref) => {
+      console.log("Added document with ID: " + ref.id);
+    });
+
     setLoading(false);
   };
 
@@ -61,14 +109,15 @@ const RegisterScreen = ({ navigation }) => {
 
       <Header>Create Account</Header>
 
-      <TextInput
-        label="Name"
-        returnKeyType="next"
-        value={name.value}
-        onChangeText={text => setName({ value: text, error: "" })}
-        error={!!name.error}
-        errorText={name.error}
-      />
+     
+        <TextInput
+          label="Name"
+          returnKeyType="next"
+          value={name.value}
+          onChangeText={text => setName({ value: text, error: "" })}
+          error={!!name.error}
+          errorText={name.error}
+        />
 
       <TextInput
         label="Email"
@@ -93,6 +142,7 @@ const RegisterScreen = ({ navigation }) => {
         secureTextEntry
         autoCapitalize="none"
       />
+      
 
       <Button
         loading={loading}
