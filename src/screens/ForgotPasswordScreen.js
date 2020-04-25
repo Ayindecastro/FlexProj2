@@ -65,6 +65,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
       <Button
         loading={loading}
+        color = "lavender"
         mode="contained"
         onPress={_onSendPressed}
         style={styles.button}
