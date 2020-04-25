@@ -85,20 +85,30 @@ const RegisterScreen = ({ navigation }) => {
     if (response.error) {
       setError(response.error);
     }
+    
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        let uid = user.uid;
+        console.log(uid)
+        console.log(typeof uid);
+        let data = {
+          name: name.value,
+          email: email.value,
+          password:  password.value,
+        }
+        {/* if sign-up works then add the user's name, email,
+        and password to the database */}
+        db.collection("users").doc(uid).set(data)
+        .catch(function(error) {
+            console.error("User data did not write to database", error);
+            throw error;
+          });    
+      }
+    });
+    
 
-    {/* if sign-up works then add the user's name, email,
-    and password to the database */}
-    db.collection("users").add({
-      name: name.value,
-      email: email.value,
-      password:  password.value,
-    }).then((ref) => {
-      console.log("Added document with ID: " + ref.id);
-    }).catch(function(error) {
-        console.error("User data did not write to database", error);
-        throw error;
-      });
-
+    
     setLoading(false);
   };
 
