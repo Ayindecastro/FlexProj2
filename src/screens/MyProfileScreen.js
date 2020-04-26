@@ -9,9 +9,15 @@ import Settings from "../components/SettingsButton";
 import Wallet from "../components/ButtonWallet";
 import LogOut from "../components/LogoutButton";
 import TopBar from "../components/TopBar";
-import firebase from "firebase/app";
+import firebase, { database } from "firebase/app";
 import "firebase/auth";
+import 'firebase/firestore';
 import { screenWidth, screenHeight } from "../core/dimensions";
+import { State } from 'react-native-gesture-handler';
+
+
+// intializaing database
+const db = firebase.firestore();
 
 const styles = StyleSheet.create({
   container: {
@@ -226,10 +232,37 @@ const styles = StyleSheet.create({
     height: 300,
     resizeMode: "contain"
   }, 
+
 });
 
+let HolderFunc = props => {
+  let Holder = React.useState(null);
+}
 
-export default class ImagePickerExample extends React.Component {
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User UID
+    let uid = user.uid;  
+      
+    // obtaining the URI of the image from the database
+    db.collection('profile').get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+          // getting data from a doc
+          if (doc.data().UID == uid) {
+            Holder =  doc.data().imageURI;
+            console.log(doc.data().imageURI);
+            console.log("This is Holder: " + Holder);
+          }
+        })
+      }).catch(function(error) {
+        console.error("Retrieval 1 failed", error);
+        throw error;
+      });          
+}});
+
+export default class ImagePickerExample extends React.Component {  
+
   state = {
     image: null,
   };
@@ -355,7 +388,7 @@ export default class ImagePickerExample extends React.Component {
 
   componentDidMount() {
     this.getPermissionAsync();
-  }
+  };
 
   // gets permission from device to use photos
   getPermissionAsync = async () => {
@@ -371,16 +404,42 @@ export default class ImagePickerExample extends React.Component {
   _pickImage = async () => {
     try {
       let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
         aspect: [4, 3],
         quality: 1,
       });
       if (!result.cancelled) {
-        this.setState({ image: result.uri });
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            // User UID
+            let uid = user.uid;
+            // update the URI in database
+            db.collection("profile").doc(uid).set({
+              UID: uid,
+              imageURI: result.uri,
+            })
+            .catch(function(error) {
+                console.error("User data did not write to database", error);
+                throw error;
+            });    
+              
+            // obtaining the URI of the image from the database
+            db.collection('profile').get().then((snapshot) => {
+                snapshot.docs.forEach(doc => {
+                  // getting data from a doc
+                  if (doc.data().UID == uid) {
+                    this.setState({ image: doc.data().imageURI})
+                    console.log(doc.data().imageURI);
+                  }
+                })
+              }).catch(function(error) {
+                console.error("Retrieval failed", error);
+                throw error;
+              });          
+        }});
       }
-
-      console.log(result);
+      // console.log(result.uri);
     } catch (E) {
       console.log(E);
     }
