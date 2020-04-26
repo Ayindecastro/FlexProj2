@@ -85,13 +85,17 @@ const RegisterScreen = ({ navigation }) => {
     if (response.error) {
       setError(response.error);
     }
+
+    // TODO add on complete lisetener
+    // sends out email verification to current user
+    firebase.auth().currentUser.sendEmailVerification();
     
+    // finds current UID and uses that as the name of the document
+    // for the details of the user's registration information
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        // User logged in already or has just logged in.
+        // User UID
         let uid = user.uid;
-        console.log(uid)
-        console.log(typeof uid);
         let data = {
           name: name.value,
           email: email.value,
@@ -107,7 +111,6 @@ const RegisterScreen = ({ navigation }) => {
       }
     });
     
-
     
     setLoading(false);
   };
@@ -121,15 +124,14 @@ const RegisterScreen = ({ navigation }) => {
 
       <Header>Create Account</Header>
 
-     
-        <TextInput
-          label="Name"
-          returnKeyType="next"
-          value={name.value}
-          onChangeText={text => setName({ value: text, error: "" })}
-          error={!!name.error}
-          errorText={name.error}
-        />
+      <TextInput
+        label="Name"
+        returnKeyType="next"
+        value={name.value}
+        onChangeText={text => setName({ value: text, error: "" })}
+        error={!!name.error}
+        errorText={name.error}
+      />
 
       <TextInput
         label="Email"
