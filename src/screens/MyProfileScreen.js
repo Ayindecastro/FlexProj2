@@ -252,7 +252,6 @@ export default class ImagePickerExample extends React.Component {
         // User UID
         let uid = user.uid;  
         console.log("User id " + uid);
-        console.log("image state: " + this.state.image)
         // obtaining the URI of the image from the database
         // db.collection("profile").where("UID", "in", [uid]).get().then((snapshot) => {
         //   snapshot.docs.forEach(doc => {
@@ -275,21 +274,22 @@ export default class ImagePickerExample extends React.Component {
         db.collection('profile').get().then((snapshot) => {
             snapshot.docs.forEach(doc => {
               // getting data from a doc
-              console.log("This should be empty: " + doc.data().imageURI);
               if (doc.data().UID == uid) {
                 if (doc.data().imageURI != "") {
-                  this.setState({ image: doc.data().imageURI})
+                  console.log("Image in database" + "\n");
+                  this.setState({image: doc.data().imageURI})
                   // console.log(doc.data().imageURI);
                 } 
-              } 
-              if (this.state.image == null) {
-                this.setState({image: "data:image/jpeg;base64,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"})
               }
             })
           }).catch(function(error) {
             console.error("Retrieval 1 failed", error);
             throw error;
-          });          
+          });
+        if (this.state.image == null) {
+            console.log("No image in database");
+            this.setState({image: "data:image/jpeg;base64,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"})
+        }
     }});
   }
 
